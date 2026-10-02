@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyflow · Piano Performance & Concert VFX Studio</title>
+<meta name="description" content="Keyflow turns MIDI into concert-grade piano performances and videos: a Direct3D 11 GPU stage, a ray-traced keyboard, practice mode and one-click MP4 recording. Free for Windows.">
+<meta property="og:title" content="Keyflow · Piano Performance & Concert VFX Studio">
+<meta property="og:description" content="Play, practise and record piano videos from MIDI with a GPU-rendered concert stage.">
+<meta property="og:image" content="previews/en/stage-gpu-galaxy.png">
+<meta name="theme-color" content="#0a0a0e">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav" id="top">
+  <a class="brand" href="#top" aria-label="Keyflow">
+    <img src="favicon.svg" width="28" height="28" alt="">
+    <span>Keyflow</span>
+  </a>
+  <nav class="links" aria-label="Sections">
+    <a href="#features" data-i18n="nav.features">Features</a>
+    <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+    <a href="#practice" data-i18n="nav.practice">Practice</a>
+    <a href="#start" data-i18n="nav.start">Get started</a>
+  </nav>
+  <div class="tools">
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-gold small" href="https://github.com/lxmtuu/KeyFlow/releases/latest" data-i18n="cta.download">Download</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow" data-i18n="hero.eyebrow">Piano performance &amp; concert VFX studio</p>
+    <h1 data-i18n-html="hero.title">Your MIDI, on a <em>concert stage</em>.</h1>
+    <p class="lead" data-i18n="hero.lead">Play, practise and record piano videos at production quality. Notes fall in time, sparks glow hot and fade, and an 88-key keyboard is lit by a ray-traced shader, all drawn on your GPU without ever holding up your MIDI input.</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="https://github.com/lxmtuu/KeyFlow/releases/latest" data-i18n="cta.download.win">Download for Windows</a>
+      <a class="btn btn-ghost" href="https://github.com/lxmtuu/KeyFlow" data-i18n="cta.github">View on GitHub</a>
+    </div>
+    <ul class="facts">
+      <li data-i18n="hero.f1">Free &amp; open source</li>
+      <li data-i18n="hero.f2">Windows 10 / 11</li>
+      <li data-i18n="hero.f3">English &amp; Tiếng Việt</li>
+    </ul>
+  </div>
+  <figure class="hero-shot">
+    <img data-shot="stage-gpu-galaxy" src="previews/en/stage-gpu-galaxy.png" width="1080" height="700" alt="Keyflow stage with the Galaxy Voyage preset">
+  </figure>
+</section>
+
+<section class="stats" aria-label="Highlights">
+  <div><b>240</b><span data-i18n="stats.fps">FPS GPU stage</span></div>
+  <div><b>16-bit</b><span data-i18n="stats.hdr">HDR with bloom</span></div>
+  <div><b>14</b><span data-i18n="stats.presets">stage presets</span></div>
+  <div><b>88</b><span data-i18n="stats.keys">ray-traced keys</span></div>
+</section>
+
+<section id="features" class="section">
+  <header class="section-head">
+    <p class="eyebrow" data-i18n="feat.eyebrow">What it does</p>
+    <h2 data-i18n="feat.title">Everything a piano video needs, in one window</h2>
+  </header>
+  <div class="grid">
+    <article class="card">
+      <h3 data-i18n="f1.t">Direct3D 11 GPU stage</h3>
+      <p data-i18n="f1.d">An independent render loop with 16-bit HDR, multi-level bloom and up to 24,000 particles. A heavy frame costs frame rate, never MIDI latency.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="f2.t">Ray-traced keyboard</h3>
+      <p data-i18n="f2.d">GGX lighting, a softbox with real penumbra, contact shadows and coloured light thrown back by the keys you press.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="f3.t">Fire, sparks &amp; light</h3>
+      <p data-i18n="f3.d">Incandescent sparks, per-note flames, impact waves and hit-line styles, plus aurora, nebula and ember-haze backgrounds.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="f4.t">Practice that listens</h3>
+      <p data-i18n="f4.d">Follow along, wait for your note, practise one hand, loop a passage with A-B and slow it down to 50%.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="f5.t">Record in one click</h3>
+      <p data-i18n="f5.d">MP4 (H.264 + AAC) with the sound already inside, AVI, or a 32-bit PNG sequence with transparency for Premiere, Resolve and OBS.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="f6.t">Your instrument, your sound</h3>
+      <p data-i18n="f6.d">Plug in a MIDI keyboard or use the computer keys. A bundled Yamaha grand SoundFont, hall reverb and all three pedals included.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="f7.t">Scores in, looks out</h3>
+      <p data-i18n="f7.d">Open MIDI and MusicXML files, share a whole look as one line of text and swap between Concert Grand, Noir and Velvet Gold.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="f8.t">Camera &amp; hand tracking</h3>
+      <p data-i18n="f8.d">Overlay a webcam with green-screen keying, and see which key your hand is over, with no model to download.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="f9.t">Two languages, live</h3>
+      <p data-i18n="f9.d">Switch between English and Tiếng Việt without a restart: every label, dialog and error repaints in the same frame.</p>
+    </article>
+  </div>
+</section>
+
+<section id="gallery" class="section">
+  <header class="section-head">
+    <p class="eyebrow" data-i18n="gal.eyebrow">Gallery</p>
+    <h2 data-i18n="gal.title">Rendered by the app itself</h2>
+    <p class="sub" data-i18n="gal.sub">Every picture here is captured by Keyflow in CI, not staged artwork.</p>
+  </header>
+  <div class="gallery">
+    <figure class="wide"><img loading="lazy" data-shot="stage-gpu-storm" src="previews/en/stage-gpu-storm.png" width="1080" height="700" alt="Electric Storm preset"><figcaption>Electric Storm</figcaption></figure>
+    <figure><img loading="lazy" data-shot="stage-gpu" src="previews/en/stage-gpu.png" width="1080" height="700" alt="Neon Violet preset"><figcaption>Neon Violet</figcaption></figure>
+    <figure><img loading="lazy" data-shot="background-image" src="previews/en/background-image.png" width="1080" height="700" alt="Stage with a custom background image"><figcaption data-i18n="gal.bg">Your own background</figcaption></figure>
+    <figure><img loading="lazy" data-shot="main-menu" src="previews/en/main-menu.png" width="1080" height="700" alt="Concert Grand start menu"><figcaption data-i18n="gal.menu">Concert Grand menu</figcaption></figure>
+    <figure><img loading="lazy" data-shot="design-dock" src="previews/en/design-dock.png" width="1080" height="700" alt="Design dock"><figcaption data-i18n="gal.dock">Stage design dock</figcaption></figure>
+  </div>
+  <figure class="presets">
+    <img loading="lazy" src="previews/presets.jpg" alt="Every built-in preset, software and GPU engines side by side">
+    <figcaption data-i18n="gal.presets">All 14 built-in presets, software and GPU engines side by side.</figcaption>
+  </figure>
+</section>
+
+<section id="practice" class="section split">
+  <div>
+    <p class="eyebrow" data-i18n="pr.eyebrow">Practice mode</p>
+    <h2 data-i18n="pr.title">Learn a piece, note by note</h2>
+    <ul class="ticks">
+      <li data-i18n="pr.1">The score waits for the right note before it moves on.</li>
+      <li data-i18n="pr.2">Right-hand-only or left-hand-only, read straight from MusicXML staves.</li>
+      <li data-i18n="pr.3">Loop any passage with A-B and slow it down to 50% tempo.</li>
+      <li data-i18n="pr.4">Live accuracy, streak and timing feedback under the stage.</li>
+    </ul>
+  </div>
+  <figure><img loading="lazy" data-shot="play-dialog" src="previews/en/play-dialog.png" width="1080" height="700" alt="Play dialog"></figure>
+</section>
+
+<section id="start" class="section">
+  <header class="section-head">
+    <p class="eyebrow" data-i18n="st.eyebrow">Get started</p>
+    <h2 data-i18n="st.title">Up and playing in a minute</h2>
+  </header>
+  <ol class="steps">
+    <li><b data-i18n="st.1t">Download</b><span data-i18n="st.1d">Grab the portable ZIP or the installer from the latest release.</span></li>
+    <li><b data-i18n="st.2t">Plug in &amp; open</b><span data-i18n="st.2d">Connect a MIDI keyboard, or just press A W S E D F on the computer keys.</span></li>
+    <li><b data-i18n="st.3t">Pick a look</b><span data-i18n="st.3d">Choose a preset in Settings, then press REC to make your video.</span></li>
+  </ol>
+  <div class="req">
+    <h3 data-i18n="req.t">System requirements</h3>
+    <dl>
+      <div><dt data-i18n="req.os">System</dt><dd data-i18n="req.os.d">Windows 10 (22H2) or Windows 11, 64-bit</dd></div>
+      <div><dt data-i18n="req.gpu">Graphics</dt><dd data-i18n="req.gpu.d">Direct3D 11 GPU (falls back to WARP, then to the WPF renderer)</dd></div>
+      <div><dt data-i18n="req.midi">MIDI</dt><dd data-i18n="req.midi.d">Optional: any USB keyboard Windows recognises</dd></div>
+      <div><dt data-i18n="req.build">Build from source</dt><dd>.NET 10 SDK, Git, Git LFS</dd></div>
+    </dl>
+  </div>
+  <p class="note" data-i18n="st.note">The app is not code-signed, so Windows SmartScreen may warn you the first time: choose “More info”, then “Run anyway”.</p>
+</section>
+
+<section class="cta">
+  <h2 data-i18n="cta.title">Put your music on stage</h2>
+  <div class="actions center">
+    <a class="btn btn-gold" href="https://github.com/lxmtuu/KeyFlow/releases/latest" data-i18n="cta.download.win">Download for Windows</a>
+    <a class="btn btn-ghost" href="https://github.com/lxmtuu/KeyFlow#readme" data-i18n="cta.docs">Read the docs</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span>Keyflow 1.0.0 · Concert Grand Edition</span>
+  <span data-i18n="foot.credit">© 2026 Yami · Neyu. Contributor: Jin.</span>
+  <a href="https://github.com/lxmtuu/KeyFlow/blob/main/LICENSE">License</a>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
