@@ -75,4 +75,18 @@
   try { saved = localStorage.getItem("keyflow-site-lang"); } catch (e) { /* ignore */ }
   var wanted = saved || ((navigator.language || "").toLowerCase().indexOf("vi") === 0 ? "vi" : "en");
   if (wanted === "vi") setLanguage("vi");
+  // The download buttons ship pointing at the v1.0.0 installer. When the GitHub API answers, they are moved to the
+  // installer of the newest release, so the page does not need an edit for every version.
+  var downloads = document.querySelectorAll("a[data-download]");
+  if (downloads.length && window.fetch) {
+    fetch("https://api.github.com/repos/lxmtuu/KeyFlow/releases/latest")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (release) {
+        if (!release || !release.assets) return;
+        var setup = release.assets.find(function (a) { return /^Keyflow-Setup-.*\.exe$/i.test(a.name); });
+        if (!setup) return;
+        downloads.forEach(function (a) { a.href = setup.browser_download_url; });
+      })
+      .catch(function () { /* offline or rate-limited: the pinned link still works */ });
+  }
 })();
