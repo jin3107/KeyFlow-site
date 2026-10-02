@@ -69,11 +69,12 @@ em { font-style: normal; background: linear-gradient(100deg, #f4d77a, #c79a3a); 
 .facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 26px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
 .facts li::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 8px; border-radius: 50%; background: var(--gold); vertical-align: middle; }
 .hero-shot { margin: 0; position: relative; }
+.hero-shot video { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; background: #000; display: block; }
 .hero-shot::before {
   content: ""; position: absolute; inset: -8% -6%; z-index: -1;
   background: radial-gradient(closest-side, rgba(139, 61, 255, .35), transparent 70%);
 }
-.hero-shot img, .gallery img, .split img, .presets img {
+.hero-shot video, .hero-shot img, .gallery img, .split img, .presets img {
   border-radius: var(--radius); border: 1px solid var(--line);
   box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .9);
 }
@@ -141,6 +142,7 @@ em { font-style: normal; background: linear-gradient(100deg, #f4d77a, #c79a3a); 
   .tools { margin-left: auto; }
   .hero, .split { grid-template-columns: 1fr; gap: 32px; }
   .hero { padding-top: 44px; }
+  .hero-shot { order: -1; }
   .grid, .steps { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
@@ -157,3 +159,41 @@ em { font-style: normal; background: linear-gradient(100deg, #f4d77a, #c79a3a); 
   html { scroll-behavior: auto; }
   .btn, .card { transition: none; }
 }
+
+.icon-link { display: inline-grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); }
+.icon-link:hover { color: var(--text); border-color: #3a3a4a; }
+.social { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+.social a { display: inline-flex; align-items: center; gap: 8px; }
+
+.carousel { position: relative; }
+.track {
+  display: flex; margin: 0; padding: 0; list-style: none;
+  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+  border-radius: var(--radius);
+}
+.track::-webkit-scrollbar { display: none; }
+.track:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.slide { flex: 0 0 100%; scroll-snap-align: start; }
+.slide figure { margin: 0; }
+.slide img { width: 100%; cursor: pointer; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .9); }
+.slide figcaption { margin-top: 12px; text-align: center; color: var(--muted); font-size: 14px; }
+.car-btn {
+  position: absolute; top: calc(50% - 40px); z-index: 2;
+  width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+  display: grid; place-items: center; font-size: 28px; line-height: 1; padding: 0 0 3px;
+  color: var(--text); background: rgba(10, 10, 14, .72); border: 1px solid var(--line);
+  backdrop-filter: blur(8px); transition: border-color .15s, background .15s;
+}
+.car-btn:hover { border-color: var(--gold); background: rgba(10, 10, 14, .9); }
+.car-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.car-btn.prev { left: 14px; }
+.car-btn.next { right: 14px; }
+.dots { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; background: #3a3a48; transition: background .15s, transform .15s; }
+.dots button[aria-selected="true"] { background: var(--gold); transform: scale(1.3); }
+.dots button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+@media (max-width: 900px) { .car-btn { width: 38px; height: 38px; top: calc(50% - 34px); } .car-btn.prev { left: 8px; } .car-btn.next { right: 8px; } }
+@media (prefers-reduced-motion: reduce) { .track { scroll-behavior: auto; } }
+.all-presets { margin: 18px 0 0; text-align: center; font-size: 14px; }
+.all-presets a { color: var(--gold); border-bottom: 1px solid rgba(227, 189, 85, .35); }
+.all-presets a:hover { border-color: var(--gold); }

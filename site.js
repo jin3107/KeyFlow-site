@@ -23,6 +23,17 @@
     "gal.eyebrow": "Hình ảnh", "gal.title": "Do chính ứng dụng vẽ ra", "gal.sub": "Mọi hình ở đây đều do Keyflow chụp trong CI, không phải ảnh dàn dựng.",
     "gal.bg": "Hình nền của riêng bạn", "gal.menu": "Menu Concert Grand", "gal.dock": "Bảng thiết kế sân khấu",
     "gal.presets": "Cả 14 preset dựng sẵn, engine phần mềm và GPU đặt cạnh nhau.",
+    "sl.galaxy": "Galaxy Voyage: vệt cầu vồng trên nền vũ trụ",
+    "sl.storm": "Electric Storm: vệt tốc độ và tia điện giữa các phím đang giữ",
+    "sl.violet": "Neon Violet: sân khấu mặc định",
+    "sl.bg": "Hình nền của riêng bạn sau bàn phím",
+    "sl.menu": "Menu khởi động Concert Grand",
+    "sl.dock": "Bảng thiết kế sân khấu: preset và mọi lớp hiệu ứng",
+    "sl.theme": "Ba giao diện hòa nhạc, cùng giao diện bạn tự tạo",
+    "sl.rec": "Quay video: MP4, AVI hoặc PNG trong suốt",
+    "sl.practice": "Luyện tập: chơi theo, chờ nốt, từng tay",
+    "sl.history": "Lịch sử luyện tập",
+    "sl.all": "Xem cả 14 preset dựng sẵn, engine phần mềm và GPU đặt cạnh nhau",
     "pr.eyebrow": "Chế độ luyện tập", "pr.title": "Học một bản nhạc, từng nốt một",
     "pr.1": "Bản nhạc chờ bạn bấm đúng nốt rồi mới đi tiếp.",
     "pr.2": "Chỉ tay phải hoặc chỉ tay trái, đọc thẳng từ khuông nhạc MusicXML.",
@@ -37,7 +48,8 @@
     "req.midi": "MIDI", "req.midi.d": "Tùy chọn: bất kỳ đàn USB nào Windows nhận ra", "req.build": "Build từ mã nguồn",
     "st.note": "Ứng dụng chưa được ký số nên Windows SmartScreen có thể cảnh báo lần đầu: chọn “More info”, rồi “Run anyway”.",
     "cta.title": "Đưa âm nhạc của bạn lên sân khấu", "cta.docs": "Đọc tài liệu",
-    "foot.credit": "© 2026 Yami · Neyu. Cộng tác: Jin."
+    "foot.credit": "© 2026 Yami · Neyu. Cộng tác: Jin.",
+    "foot.product": "Keyflow trên GitHub"
   };
 
   var shots = document.querySelectorAll("img[data-shot]");
@@ -88,5 +100,41 @@
         downloads.forEach(function (a) { a.href = setup.browser_download_url; });
       })
       .catch(function () { /* offline or rate-limited: the pinned link still works */ });
+  }
+  // Screenshot carousel: a native scroll-snap track (so touch swipe works for free) plus arrows, dots,
+  // keyboard arrows, and a click on the picture that moves to the next one.
+  var track = document.querySelector(".carousel .track");
+  if (track) {
+    var slides = track.children;
+    var dots = document.querySelector(".carousel .dots");
+    var current = 0;
+    var go = function (i) {
+      current = (i + slides.length) % slides.length;
+      track.scrollTo({ left: slides[current].offsetLeft - track.offsetLeft, behavior: "smooth" });
+    };
+    for (var i = 0; i < slides.length; i++) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", "Picture " + (i + 1));
+      (function (n) { dot.addEventListener("click", function () { go(n); }); })(i);
+      dots.appendChild(dot);
+    }
+    var mark = function () {
+      if (!track.clientWidth) return;   // not laid out yet (hidden tab / zero-width pane)
+      var index = Math.round(track.scrollLeft / track.clientWidth);
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      Array.prototype.forEach.call(dots.children, function (d, n) { d.setAttribute("aria-selected", String(n === current)); });
+    };
+    track.addEventListener("scroll", mark, { passive: true });
+    document.querySelector(".carousel .prev").addEventListener("click", function () { go(current - 1); });
+    document.querySelector(".carousel .next").addEventListener("click", function () { go(current + 1); });
+    track.addEventListener("click", function (e) { if (e.target.tagName === "IMG") go(current + 1); });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(current + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(current - 1); }
+    });
+    window.addEventListener("resize", function () { track.scrollLeft = slides[current].offsetLeft - track.offsetLeft; mark(); });
+    mark();
   }
 })();

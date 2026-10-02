@@ -29,6 +29,7 @@
     <a href="#start" data-i18n="nav.start">Get started</a>
   </nav>
   <div class="tools">
+    <a class="icon-link" href="https://github.com/lxmtuu/KeyFlow" aria-label="Keyflow on GitHub" title="GitHub"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-lang="en" aria-pressed="true">EN</button>
       <button type="button" data-lang="vi" aria-pressed="false">VI</button>
@@ -54,7 +55,9 @@
     </ul>
   </div>
   <figure class="hero-shot">
-    <img data-shot="stage-gpu-galaxy" src="previews/en/stage-gpu-galaxy.png" width="1080" height="700" alt="Keyflow stage with the Galaxy Voyage preset">
+    <video controls muted loop playsinline autoplay preload="metadata" poster="previews/en/stage-gpu-galaxy.png" aria-label="Keyflow showcase video">
+      <source src="media/showcase.mp4" type="video/mp4">
+    </video>
   </figure>
 </section>
 
@@ -116,17 +119,44 @@
     <h2 data-i18n="gal.title">Rendered by the app itself</h2>
     <p class="sub" data-i18n="gal.sub">Every picture here is captured by Keyflow in CI, not staged artwork.</p>
   </header>
-  <div class="gallery">
-    <figure class="wide"><img loading="lazy" data-shot="stage-gpu-storm" src="previews/en/stage-gpu-storm.png" width="1080" height="700" alt="Electric Storm preset"><figcaption>Electric Storm</figcaption></figure>
-    <figure><img loading="lazy" data-shot="stage-gpu" src="previews/en/stage-gpu.png" width="1080" height="700" alt="Neon Violet preset"><figcaption>Neon Violet</figcaption></figure>
-    <figure><img loading="lazy" data-shot="background-image" src="previews/en/background-image.png" width="1080" height="700" alt="Stage with a custom background image"><figcaption data-i18n="gal.bg">Your own background</figcaption></figure>
-    <figure><img loading="lazy" data-shot="main-menu" src="previews/en/main-menu.png" width="1080" height="700" alt="Concert Grand start menu"><figcaption data-i18n="gal.menu">Concert Grand menu</figcaption></figure>
-    <figure><img loading="lazy" data-shot="design-dock" src="previews/en/design-dock.png" width="1080" height="700" alt="Design dock"><figcaption data-i18n="gal.dock">Stage design dock</figcaption></figure>
+  <div class="carousel" aria-roledescription="carousel" aria-label="Screenshots">
+    <button type="button" class="car-btn prev" aria-label="Previous picture">&#8249;</button>
+    <ul class="track" tabindex="0">
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="1 / 10">
+        <figure><img data-shot="stage-gpu-galaxy" src="previews/en/stage-gpu-galaxy.png" width="1080" height="700" alt="Galaxy Voyage"><figcaption data-i18n="sl.galaxy">Galaxy Voyage: rainbow trails over a cosmic layer</figcaption></figure>
+      </li>
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="2 / 10">
+        <figure><img loading="lazy" data-shot="stage-gpu-storm" src="previews/en/stage-gpu-storm.png" width="1080" height="700" alt="Electric Storm"><figcaption data-i18n="sl.storm">Electric Storm: speed lines and arcs between held keys</figcaption></figure>
+      </li>
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="3 / 10">
+        <figure><img loading="lazy" data-shot="stage-gpu" src="previews/en/stage-gpu.png" width="1080" height="700" alt="Neon Violet"><figcaption data-i18n="sl.violet">Neon Violet: the default stage</figcaption></figure>
+      </li>
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="4 / 10">
+        <figure><img loading="lazy" data-shot="background-image" src="previews/en/background-image.png" width="1080" height="700" alt="Your own background"><figcaption data-i18n="sl.bg">Your own picture behind the keys</figcaption></figure>
+      </li>
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="5 / 10">
+        <figure><img loading="lazy" data-shot="main-menu" src="previews/en/main-menu.png" width="1080" height="700" alt="Concert Grand menu"><figcaption data-i18n="sl.menu">The Concert Grand start menu</figcaption></figure>
+      </li>
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="6 / 10">
+        <figure><img loading="lazy" data-shot="design-dock" src="previews/en/design-dock.png" width="1080" height="700" alt="Stage design dock"><figcaption data-i18n="sl.dock">Stage design dock: presets and every layer</figcaption></figure>
+      </li>
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="7 / 10">
+        <figure><img loading="lazy" data-shot="theme-dock" src="previews/en/theme-dock.png" width="1080" height="700" alt="Themes"><figcaption data-i18n="sl.theme">Three concert interfaces, plus themes you make</figcaption></figure>
+      </li>
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="8 / 10">
+        <figure><img loading="lazy" data-shot="recording-dock" src="previews/en/recording-dock.png" width="1080" height="700" alt="Recording"><figcaption data-i18n="sl.rec">Recording: MP4, AVI or PNG with alpha</figcaption></figure>
+      </li>
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="9 / 10">
+        <figure><img loading="lazy" data-shot="practice-dock" src="previews/en/practice-dock.png" width="1080" height="700" alt="Practice"><figcaption data-i18n="sl.practice">Practice: follow along, wait for my note, one hand</figcaption></figure>
+      </li>
+      <li class="slide" role="group" aria-roledescription="slide" aria-label="10 / 10">
+        <figure><img loading="lazy" data-shot="history-dock" src="previews/en/history-dock.png" width="1080" height="700" alt="History"><figcaption data-i18n="sl.history">Practice history</figcaption></figure>
+      </li>
+    </ul>
+    <button type="button" class="car-btn next" aria-label="Next picture">&#8250;</button>
+    <div class="dots" role="tablist" aria-label="Pictures"></div>
   </div>
-  <figure class="presets">
-    <img loading="lazy" src="previews/presets.jpg" alt="Every built-in preset, software and GPU engines side by side">
-    <figcaption data-i18n="gal.presets">All 14 built-in presets, software and GPU engines side by side.</figcaption>
-  </figure>
+  <p class="all-presets"><a href="previews/presets.jpg" data-i18n="sl.all">See all 14 built-in presets, software and GPU side by side</a></p>
 </section>
 
 <section id="practice" class="section split">
@@ -177,7 +207,11 @@
 <footer class="foot">
   <span>Keyflow 1.0.0 · Concert Grand Edition</span>
   <span data-i18n="foot.credit">© 2026 Yami · Neyu. Contributor: Jin.</span>
-  <a href="https://github.com/lxmtuu/KeyFlow/blob/main/LICENSE">License</a>
+  <span class="social">
+    <a href="https://github.com/lxmtuu/KeyFlow"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg> <span data-i18n="foot.product">Keyflow on GitHub</span></a>
+    <a href="https://github.com/jin3107"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg> Jin</a>
+    <a href="https://github.com/lxmtuu/KeyFlow/blob/main/LICENSE">License</a>
+  </span>
 </footer>
 
 <script src="site.js"></script>
